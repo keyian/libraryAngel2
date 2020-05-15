@@ -6,12 +6,9 @@ import favicon from '../../static/favicon.ico'
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const blogPath = `${__PATH_PREFIX__}/blog/`
+    const { title, children } = this.props
     let header
 
-    if (location.pathname === rootPath || location.pathname === blogPath) {
       header = (
         <h1
           style={{
@@ -27,33 +24,13 @@ class Layout extends React.Component {
               textDecoration: `none`,
               color: `inherit`,
             }}
-            to={location.pathname === blogPath ? `/blog/` : `/`}
+            to={`/`}
           >
             {title}
           </Link>
         </h1>
       )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/blog/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
+
     return (
       <Wrapper>
         <div
@@ -66,7 +43,7 @@ class Layout extends React.Component {
           <main>{children}</main>
         </div>
         <Footer>
-          © {new Date().getFullYear()}, Library Angel, Inc. 
+          © {new Date().getFullYear()}, Library Angel, Inc.
         </Footer>
       </Wrapper>
     )
