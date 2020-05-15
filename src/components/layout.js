@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import {Helmet} from 'react-helmet'
+import favicon from '../../static/favicon.ico'
 
 class Layout extends React.Component {
   render() {
@@ -16,6 +18,9 @@ class Layout extends React.Component {
             marginTop: 0,
           }}
         >
+        <Helmet>
+          <link rel="icon" href={favicon} />
+        </Helmet>
           <Link
             style={{
               boxShadow: `none`,
